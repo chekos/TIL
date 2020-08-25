@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-08-25T17:42:41+00:00</updated><id>/</id><title type="html">chekos’ today i learned</title><subtitle>Imaginemos cosas chingonas.</subtitle><entry><title type="html">how to delete tags on remote repos</title><link href="/deleting-remote-tags-on-git/" rel="alternate" type="text/html" title="how to delete tags on remote repos" /><published>2020-06-23T00:00:00+00:00</published><updated>2020-06-23T00:00:00+00:00</updated><id>/deleting-remote-tags-on-git</id><content type="html" xml:base="/deleting-remote-tags-on-git/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;you can delete remote tags from your github repository using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push --delete origin &amp;lt;TAG NAME&amp;gt;&lt;/code&gt; or you can delete locally and then push those changes to your remote repo&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git tag &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; 0.0.7
+git push origin :refs/tag/0.0.7
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+&lt;p&gt;recently someone became the very first contributor to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pypums&lt;/code&gt; and when i merged their contribution and tried to automatically build and publish the package to PyPI i found myself making an error. at first i tried to create a release on github then i realized i had not changed the versions accordingly in setup.py and the other files. i had already tagged it as 0.0.7, however, so i had to delete the tag, fix the versions, tag it again.&lt;/p&gt;
+
+&lt;p&gt;i had done this before a few times but this time i found this very quick and easy explanatory post: &lt;a href=&quot;https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/&quot;&gt;how to delete local and remote tags on git&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">what i learned you can delete remote tags from your github repository using git push --delete origin &amp;lt;TAG NAME&amp;gt; or you can delete locally and then push those changes to your remote repo</summary></entry><entry><title type="html">about MyST-parser, es markdown pero rST</title><link href="/about-myst-parser/" rel="alternate" type="text/html" title="about MyST-parser, es markdown pero rST" /><published>2020-06-22T00:00:00+00:00</published><updated>2020-06-22T00:00:00+00:00</updated><id>/about-myst-parser</id><content type="html" xml:base="/about-myst-parser/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;MyST-parser is &lt;strong&gt;so easy to use&lt;/strong&gt; and it provides all the functionality i need to make docs without using rST.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+
+&lt;p&gt;i was creating the docs for &lt;a href=&quot;https://tacosdedatos-utils.rtfd.io&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tacosdedatos-utils&lt;/code&gt;&lt;/a&gt; and i rather not touch rST ever. i had seen &lt;a href=&quot;https://twitter.com/choldraf&quot;&gt;@choldraf&lt;/a&gt; tweet &lt;a href=&quot;https://twitter.com/choldgraf/status/1272633413132943360?s=20&quot;&gt;about MyST before&lt;/a&gt; but i had not had the need to use it.&lt;/p&gt;
+
+&lt;p&gt;today i made the documentation for that small utils package and it was actually a pleasant experience? the underlying concepts of rST (roles, directives, etc etc) are still a little fuzzy but the syntax makes a ton more sense now so it’s one less challenge for me.&lt;/p&gt;
+
+&lt;p&gt;official docs: &lt;a href=&quot;https://myst-parser.readthedocs.io/en/latest/&quot;&gt;myst-parser.readthedocs.io&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">what i learned MyST-parser is so easy to use and it provides all the functionality i need to make docs without using rST.</summary></entry><entry><title type="html">escaping liquid tags with {% raw %}</title><link href="/escaping-liquid-tags/" rel="alternate" type="text/html" title="escaping liquid tags with {% raw %}" /><published>2020-06-18T00:00:00+00:00</published><updated>2020-06-18T00:00:00+00:00</updated><id>/escaping-liquid-tags</id><content type="html" xml:base="/escaping-liquid-tags/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;you can use the tags &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;raw&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endraw&lt;/code&gt; to escape liquid tags.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+&lt;p&gt;in the &lt;a href=&quot;../liquid-tags-cheatsheet&quot;&gt;previous TIL&lt;/a&gt; i tried to write the following&lt;/p&gt;
+
+&lt;p&gt;i am moving soyserg.io from a hugo site to jekyll and i couldn’t figure out how to have nested &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{}}&lt;/code&gt; as in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ category/{{category | downcase }} | relative_url }}&lt;/code&gt; which just doesn’t work. so i moved to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ 'category/' | append: category | downcase | relative_url }}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;but it was not possible off the bat because of the double &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{}&lt;/code&gt;. at first i tried to escape them as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\{\{\}\}&lt;/code&gt; but that did not work.&lt;/p&gt;
+
+&lt;p&gt;turns out the answer is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{% raw %}&lt;/code&gt; tag.&lt;/p&gt;
+
+&lt;p&gt;the paragraph then looks like this in the markdown file&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;sb&quot;&gt;`{% raw %}`&lt;/span&gt;
+i am moving soyserg.io from a hugo site to jekyll and i couldn't figure out how to have nested &lt;span class=&quot;sb&quot;&gt;`{{}}`&lt;/span&gt; as in &lt;span class=&quot;sb&quot;&gt;`{{ category/{{category | downcase }} | relative_url }}`&lt;/span&gt; which just doesn't work. so i moved to &lt;span class=&quot;sb&quot;&gt;`{{ 'category/' | append: category | downcase | relative_url }}`&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;`% endraw %`&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">what i learned you can use the tags raw and endraw to escape liquid tags.</summary></entry><entry><title type="html">about liquid tags</title><link href="/liquid-tags-cheasheet/" rel="alternate" type="text/html" title="about liquid tags" /><published>2020-06-15T00:00:00+00:00</published><updated>2020-06-15T00:00:00+00:00</updated><id>/liquid-tags-cheasheet</id><content type="html" xml:base="/liquid-tags-cheasheet/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;shopify has a github pages site documenting liquid tags which is very useful and easy to use.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+
+&lt;p&gt;i am moving soyserg.io from a hugo site to jekyll and i couldn’t figure out how to have nested &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{}}&lt;/code&gt; as in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ category/{{category | downcase }} | relative_url }}&lt;/code&gt; which just doesn’t work. so i moved to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{{ 'category/' | append: category | downcase | relative_url }}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;the answer was found here: &lt;a href=&quot;https://shopify.github.io/liquid/&quot;&gt;shopify.github.io/liquid&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">what i learned shopify has a github pages site documenting liquid tags which is very useful and easy to use.</summary></entry><entry><title type="html">about jekyll-archives</title><link href="/jekyll-archives/" rel="alternate" type="text/html" title="about jekyll-archives" /><published>2020-05-22T00:00:00+00:00</published><updated>2020-05-22T00:00:00+00:00</updated><id>/jekyll-archives</id><content type="html" xml:base="/jekyll-archives/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;there’s a jekyll-plugin named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-archives&lt;/code&gt; that lets you create archives of your posts based on metadata/front matter.&lt;/p&gt;
+
+&lt;p&gt;i used it for &lt;a href=&quot;https://socialtech.us/&quot;&gt;socialtech.us&lt;/a&gt; to create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;category/${category}&lt;/code&gt; page for each of the categories in the site (created dynamically).&lt;/p&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+&lt;p&gt;the social tech collaborative website has a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/categories/&lt;/code&gt; page where each category has a header so you can get to each category via url like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;socialtech.us/categories#${category}&lt;/code&gt;. for example, you could go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;socialtech.us/categories#texting&lt;/code&gt; if you wanted to see the plays with the tag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texting&lt;/code&gt;. however, because each play can have multiple categories, plays would appear multiple times in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/categories&lt;/code&gt; page. we wanted a page per category.&lt;/p&gt;
+
+&lt;p&gt;at first i thought i was going to have to some wild logic in a page to “fill” in each category and maybe use the page’s query params but that would not be done through jekyll since jekyll creates the static website only - you can’t use jekyll or liquid tags to play around with the query params.&lt;/p&gt;
+
+&lt;p&gt;the answer was found here: &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/5672&quot;&gt;github.com/jekyll/jekyll/issues/5672&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;all that was needed was&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll-archives&lt;/code&gt; to the list of plug-ins&lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Archives&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;archives:
+  enabled: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'categories'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;archive&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;permalinks:
+category: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'/category/:name/'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;add an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;archive.html&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_layouts/&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">what i learned there’s a jekyll-plugin named jekyll-archives that lets you create archives of your posts based on metadata/front matter.</summary></entry><entry><title type="html">you can’t use special characters in unix commands if you use single-quotes</title><link href="/single-vs-double-quotes-in-unix/" rel="alternate" type="text/html" title="you can't use special characters in unix commands if you use single-quotes" /><published>2020-05-08T00:00:00+00:00</published><updated>2020-05-08T00:00:00+00:00</updated><id>/single-vs-double-quotes-in-unix</id><content type="html" xml:base="/single-vs-double-quotes-in-unix/">&lt;h2 id=&quot;what-i-learned&quot;&gt;what i learned&lt;/h2&gt;
+&lt;p&gt;You can’t insert variables in Unix commands if you’re using single quotes.&lt;/p&gt;
+
+&lt;p&gt;this won’t work&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SECRET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;huh&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'you can not see my secret $SECRET'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;but this will&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;SECRET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;huh&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;you can see my secret &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$SECRET&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;how-i-learned&quot;&gt;how i learned&lt;/h2&gt;
+&lt;p&gt;while setting up a GitHub action for the social tech collaborative website that would send a url to a specific slack channel, i would get &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$TARGET_URL&lt;/code&gt; instead of the actual url.&lt;/p&gt;
+
+&lt;p&gt;turns out special characters are interpreted as literals with single-quotes.&lt;/p&gt;
+
+&lt;p&gt;when you use double-quotes, special characters &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;`&lt;/code&gt; remain special 🙄&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Single quotes (‘ ‘) operate similarly to double quotes, but do not permit referencing variables, since the special meaning of $ is turned off. Within single quotes, every special character except ‘ gets interpreted literally. Consider single quotes (“full quoting”) to be a stricter method of quoting than double quotes (“partial quoting”). &lt;br /&gt; - &lt;a href=&quot;https://www.tldp.org/LDP/abs/html/quotingvar.html&quot;&gt;tldp.org&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">what i learned You can’t insert variables in Unix commands if you’re using single quotes.</summary></entry></feed>
